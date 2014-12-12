@@ -1,4 +1,12 @@
 CREATE OR REPLACE PACKAGE BODY SYS_TOOLS
+/*****************************************************************************************************
+ * Package containing system utility tools for use in an Oracle database.
+ *
+ * Dev				Date		Desc
+ * ---------------------------------------------------------------------------------------------------
+ * Eelse Pieters	2014-12-12	Original version
+ *
+ *****************************************************************************************************/
 AS
 
   FUNCTION GET_CURRENT_SCHEMA RETURN VARCHAR2
@@ -369,7 +377,7 @@ AS
                        ) AS RECOMPILE_ORDER
       FROM   ALL_OBJECTS AOT
       WHERE  AOT.OWNER = B_OWNER_NAME
-      AND    AOT.OBJECT_NAME != 'ZMS_SYS_TOOLS'
+      AND    AOT.OBJECT_NAME != 'SYS_TOOLS'
       AND    AOT.OBJECT_TYPE IN ('PACKAGE', 'PACKAGE BODY', 'TRIGGER', 'TYPE', 'TYPE BODY', 'VIEW', 'SYNONYM')
       AND    AOT.STATUS != 'VALID'
       ORDER 
